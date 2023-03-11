@@ -1,7 +1,5 @@
-# Imagique-codes
 
-Imagique app is a GUI application that is used for appliying augmentations to images which are used for train a model. There are different augmentation methods such as flip,
-brigthness adjustment, contrast adjustments and so on. 
+Imagique app is an open source GUI application that is used for appliying augmentations to images which are used for train a model. There are different augmentation methods such as flip, brigthness adjustment, contrast adjustments and so on. 
 
 By usign range bars, you can select an interval that augmentation value is going to be selected on it. For example, if you select 0 and 0.1 for shear X, program will select 
 a random value between 0 and 0.1 and shear operation will be applied with the ratio of this value in X direction from the center of image. 

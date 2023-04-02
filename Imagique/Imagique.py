@@ -556,14 +556,12 @@ class Imagique(QMainWindow):
             params_dict["csv_file"] = self.csv_file
 
         if self.change_output_size_checkbox.isChecked():
-            try:
-                output_width = int(self.output_width.text())
-                output_height = int(self.output_height.text())
-                params_dict["change_output_image_size"] = True
-                params_dict["output_width"] = output_width
-                params_dict["output_height"] = output_height
-            except:
-                QMessageBox.warning(self, "Not a number", "Please give output image width and height values as numbers")
+            output_width = int(self.output_width.text())
+            output_height = int(self.output_height.text())
+            params_dict["change_output_image_size"] = True
+            params_dict["output_width"] = output_width
+            params_dict["output_height"] = output_height
+            
         else:
             params_dict["change_output_image_size"] = False
             
@@ -594,7 +592,15 @@ class Imagique(QMainWindow):
                 QMessageBox.warning(self, "Not a number", "Please give starting number value for naming images")
                 self.augmentation_all_images_button.setEnabled(True)
                 return
-
+            
+        if self.change_output_size_checkbox.isChecked():
+            try:
+                output_width = int(self.output_width.text())
+                output_height = int(self.output_height.text())
+            except:
+                QMessageBox.warning(self, "Not a number", "Please give output image width and height values as numbers")
+                return
+            
         if self.bounding_boxes_checkbox.isChecked() and self.label_control:
             if os.path.exists(label_saving_folder) == False:
                 QMessageBox.critical(self, "path error !!", "given label saving path does not exist or broken")

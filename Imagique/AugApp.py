@@ -661,7 +661,7 @@ class ImageViewer(QMainWindow):
     
     def open_csv(self):
         
-        self.DataFrame = preprocess_image_labels("scripts/dataframe.csv")
+        self.DataFrame = preprocess_image_labels(self.csv_file)
 
         self.label_control = 1
         self.bounding_boxes_checkbox.setChecked(True)
